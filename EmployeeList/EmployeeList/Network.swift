@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class Network {
     
-    func loadData() async -> [Employee]? {
+    func fetchData() async -> [Employee]? {
         guard let url = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json") else {
             print("ERROR: Failed to create URL.")
             return nil
@@ -27,6 +28,22 @@ class Network {
         }
     }
     
+    func fetchSmallImage(imageURLString: String) async -> UIImage? {
+        guard let url = URL(string: imageURLString) else {
+            print("ERROR: Failed to create URL.")
+            return nil
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            
+            let image = UIImage(data: data)
+            return image
+        } catch {
+            print("ERROR: Invalid data. \(error)")
+            return nil
+        }
+    }
 }
 
 struct Response: Codable {

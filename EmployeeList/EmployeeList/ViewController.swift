@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     var tableData: [Employee]?
+    var smallImages: [String:UIImage] = [:]
     var network = Network()
 
     override func viewDidLoad() {
@@ -38,9 +39,30 @@ class ViewController: UIViewController {
     // Fetch the employee data and refresh the table
     func loadTableData() {
         Task {
-            tableData = await network.loadData()
+            tableData = await network.fetchData()
             tableView.reloadData()
         }
+    }
+    
+    func loadCellImage(employee: Employee) -> UIImage? {
+        // TODO load from cache
+        if let smallImage = smallImages[employee.uuid] {
+            return smallImage
+        }
+        
+        // Nothing cached so load it via API
+        Task {
+            if let urlString = employee.photo_url_small,
+               let smallImage = await network.fetchSmallImage(imageURLString: urlString) {
+                smallImages[employee.uuid] = smallImage
+                
+                await MainActor.run {
+                    tableView.reloadData()
+                }
+            }
+        }
+        
+        return nil
     }
 
 }
@@ -63,9 +85,10 @@ extension ViewController: UITableViewDataSource {
             cell.nameLabel.text = employee.full_name
             cell.teamLabel.text = employee.team
             cell.smallImageView.image = UIImage(systemName: "photo")
+            cell.smallImageView.image = loadCellImage(employee: employee)
         } else {
-            cell.nameLabel.text = "Chad Weigle"
-            cell.teamLabel.text = "Appointments"
+            cell.nameLabel.text = "Test name"
+            cell.teamLabel.text = "Test team"
             cell.smallImageView.image = UIImage(systemName: "photo")
         }
         
