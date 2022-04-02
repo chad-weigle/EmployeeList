@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet var tableView: UITableView!
     var tableData: [Employee]?
     var smallImages: [String:UIImage] = [:]
@@ -23,10 +22,6 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
-    
-        
-        // TODO setup and show loading spinner
-        
         
         loadTableData()
     }
@@ -45,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     func loadCellImage(employee: Employee) -> UIImage? {
-        // TODO load from cache
+        // See if we have the image cached first
         if let smallImage = smallImages[employee.uuid] {
             return smallImage
         }
@@ -57,6 +52,11 @@ class ViewController: UIViewController {
                 smallImages[employee.uuid] = smallImage
                 
                 await MainActor.run {
+                    /*
+                     This is pretty inefficient since this reloads the entire table after fetching a single image.
+                     A better implementation would be to load the image into the specific cell IF that cell is
+                     still showing the correct employee that matches this image.
+                     */
                     tableView.reloadData()
                 }
             }
@@ -64,32 +64,27 @@ class ViewController: UIViewController {
         
         return nil
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tapped row")
     }
-    
 }
 
 extension ViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell", for: indexPath) as! EmployeeCell
         
+        cell.smallImageView.image = UIImage(systemName: "photo")
         if let data = tableData {
             let employee = data[indexPath.row]
             cell.nameLabel.text = employee.full_name
             cell.teamLabel.text = employee.team
-            cell.smallImageView.image = UIImage(systemName: "photo")
             cell.smallImageView.image = loadCellImage(employee: employee)
         } else {
             cell.nameLabel.text = "Test name"
             cell.teamLabel.text = "Test team"
-            cell.smallImageView.image = UIImage(systemName: "photo")
         }
         
         return cell
@@ -102,5 +97,4 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData?.count ?? 0
     }
-    
 }
