@@ -9,19 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     var tableData: [Employee]?
     var smallImages: [String:UIImage] = [:]
     var network = Network()
+    var emptyStateView = TableEmptyState.instanceFromNib()
+    var errorStateView = TableErrorState.instanceFromNib()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Employees"
+        loadingIndicator.isHidden = true
         
         self.tableView.register(UINib(nibName: "EmployeeCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
         tableView.delegate = self
         tableView.dataSource = self
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
+        
+        // Setup empty state
+        tableView.backgroundView = emptyStateView
         
         loadTableData()
     }
@@ -33,15 +41,29 @@ class ViewController: UIViewController {
     
     // Fetch the employee data and refresh the table
     func loadTableData() {
+        showLoading()
         Task {
             tableData = await network.fetchData()
+            
+            // Show an error state or empty state view
+            if tableData == nil {
+                tableView.backgroundView = errorStateView
+            } else if tableData?.count == 0 {
+                tableView.backgroundView = emptyStateView
+            }
+            
+            await MainActor.run {
+                hideLoading()
+            }
+            
             tableView.reloadData()
         }
     }
     
+    // Load the cell image from the cache or go fetch it from the api (api does table reload)
     func loadCellImage(employee: Employee) -> UIImage? {
         // See if we have the image cached first
-        if let smallImage = smallImages[employee.uuid] {
+        if let smallImage = smallImages[employee.photo_url_small ?? ""] {
             return smallImage
         }
         
@@ -49,7 +71,7 @@ class ViewController: UIViewController {
         Task {
             if let urlString = employee.photo_url_small,
                let smallImage = await network.fetchSmallImage(imageURLString: urlString) {
-                smallImages[employee.uuid] = smallImage
+                smallImages[urlString] = smallImage
                 
                 await MainActor.run {
                     /*
@@ -63,6 +85,17 @@ class ViewController: UIViewController {
         }
         
         return nil
+    }
+    
+    func showLoading() {
+        loadingIndicator.startAnimating()
+        tableView.backgroundView = nil
+        loadingIndicator.isHidden = false
+    }
+    
+    func hideLoading() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
     }
 }
 

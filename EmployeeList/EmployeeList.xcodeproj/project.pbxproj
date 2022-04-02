@@ -18,6 +18,10 @@
 		6351561C27F7A8FD0091314D /* EmployeeListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351561B27F7A8FD0091314D /* EmployeeListUITestsLaunchTests.swift */; };
 		6351562927F7B0830091314D /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6351562827F7B0830091314D /* EmployeeCell.xib */; };
 		6351562B27F7B3140091314D /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6351562A27F7B3140091314D /* EmployeeCell.swift */; };
+		63953BA927F9006D00444510 /* TableErrorState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63953BA827F9006D00444510 /* TableErrorState.xib */; };
+		63953BAB27F900B000444510 /* TableErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63953BAA27F900B000444510 /* TableErrorState.swift */; };
+		63953BAD27F9026600444510 /* TableEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63953BAC27F9026600444510 /* TableEmptyState.swift */; };
+		63953BAF27F9027000444510 /* TableEmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63953BAE27F9027000444510 /* TableEmptyState.xib */; };
 		63BE2E8C27F7E3C200C07365 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE2E8B27F7E3C200C07365 /* Network.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,10 @@
 		6351561B27F7A8FD0091314D /* EmployeeListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6351562827F7B0830091314D /* EmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		6351562A27F7B3140091314D /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
+		63953BA827F9006D00444510 /* TableErrorState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableErrorState.xib; sourceTree = "<group>"; };
+		63953BAA27F900B000444510 /* TableErrorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableErrorState.swift; sourceTree = "<group>"; };
+		63953BAC27F9026600444510 /* TableEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableEmptyState.swift; sourceTree = "<group>"; };
+		63953BAE27F9027000444510 /* TableEmptyState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableEmptyState.xib; sourceTree = "<group>"; };
 		63BE2E8B27F7E3C200C07365 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +123,10 @@
 				6351562827F7B0830091314D /* EmployeeCell.xib */,
 				6351562A27F7B3140091314D /* EmployeeCell.swift */,
 				63BE2E8B27F7E3C200C07365 /* Network.swift */,
+				63953BA827F9006D00444510 /* TableErrorState.xib */,
+				63953BAA27F900B000444510 /* TableErrorState.swift */,
+				63953BAC27F9026600444510 /* TableEmptyState.swift */,
+				63953BAE27F9027000444510 /* TableEmptyState.xib */,
 			);
 			path = EmployeeList;
 			sourceTree = "<group>";
@@ -240,6 +252,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63953BAF27F9027000444510 /* TableEmptyState.xib in Resources */,
+				63953BA927F9006D00444510 /* TableErrorState.xib in Resources */,
 				6351560527F7A8FD0091314D /* LaunchScreen.storyboard in Resources */,
 				6351562927F7B0830091314D /* EmployeeCell.xib in Resources */,
 				6351560227F7A8FD0091314D /* Assets.xcassets in Resources */,
@@ -269,10 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BE2E8C27F7E3C200C07365 /* Network.swift in Sources */,
+				63953BAD27F9026600444510 /* TableEmptyState.swift in Sources */,
 				635155FD27F7A8FD0091314D /* ViewController.swift in Sources */,
 				6351562B27F7B3140091314D /* EmployeeCell.swift in Sources */,
 				635155F927F7A8FD0091314D /* AppDelegate.swift in Sources */,
 				635155FB27F7A8FD0091314D /* SceneDelegate.swift in Sources */,
+				63953BAB27F900B000444510 /* TableErrorState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

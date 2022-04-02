@@ -10,7 +10,10 @@ import UIKit
 
 class Network {
     func fetchData() async -> [Employee]? {
-        guard let url = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json") else {
+        let url = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"            // Good
+//        let url = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"  // Bad
+//        let url = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"      // Empty
+        guard let url = URL(string: url) else {
             print("ERROR: Failed to create URL.")
             return nil
         }
