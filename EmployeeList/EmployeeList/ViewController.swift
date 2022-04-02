@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         self.tableView.register(UINib(nibName: "EmployeeCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
         tableView.delegate = self
         tableView.dataSource = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(refreshTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
+    
         
         // TODO show loading spinner
         
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func refreshTapped() {
+    @objc func refreshTapped() {
         
     }
 
