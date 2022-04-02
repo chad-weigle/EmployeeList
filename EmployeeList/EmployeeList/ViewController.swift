@@ -24,17 +24,23 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
     
         
-        // TODO show loading spinner
+        // TODO setup and show loading spinner
         
-        // Fetch the employee data and refresh the table
+        
+        loadTableData()
+    }
+    
+    @objc func refreshTapped() {
+        print("INFO: Refresh button tapped.")
+        loadTableData()
+    }
+    
+    // Fetch the employee data and refresh the table
+    func loadTableData() {
         Task {
             tableData = await network.loadData()
             tableView.reloadData()
         }
-    }
-    
-    @objc func refreshTapped() {
-        
     }
 
 }
