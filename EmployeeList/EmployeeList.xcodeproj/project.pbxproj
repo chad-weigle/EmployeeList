@@ -101,13 +101,15 @@
 		6332791227F93E7700794130 /* EmployeeTable */ = {
 			isa = PBXGroup;
 			children = (
+				6351562A27F7B3140091314D /* EmployeeCell.swift */,
+				6351562827F7B0830091314D /* EmployeeCell.xib */,
+				635155FC27F7A8FD0091314D /* EmployeeTableViewController.swift */,
 				63953BAC27F9026600444510 /* TableEmptyState.swift */,
 				63953BAE27F9027000444510 /* TableEmptyState.xib */,
 				63953BAA27F900B000444510 /* TableErrorState.swift */,
 				63953BA827F9006D00444510 /* TableErrorState.xib */,
 				6332791027F93E5A00794130 /* TableLoadingState.swift */,
 				6332790E27F93E1300794130 /* TableLoadingState.xib */,
-				635155FC27F7A8FD0091314D /* EmployeeTableViewController.swift */,
 			);
 			path = EmployeeTable;
 			sourceTree = "<group>";
@@ -142,8 +144,6 @@
 				6351560127F7A8FD0091314D /* Assets.xcassets */,
 				6351560327F7A8FD0091314D /* LaunchScreen.storyboard */,
 				6351560627F7A8FD0091314D /* Info.plist */,
-				6351562827F7B0830091314D /* EmployeeCell.xib */,
-				6351562A27F7B3140091314D /* EmployeeCell.swift */,
 				63BE2E8B27F7E3C200C07365 /* Network.swift */,
 			);
 			path = EmployeeList;
