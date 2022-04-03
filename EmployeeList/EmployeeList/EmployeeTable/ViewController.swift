@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var tableData: [Employee]?
     var smallImages: [String:UIImage] = [:]
     var network = Network()
+    var loadingStateView = TableLoadingState.instanceFromNib()
     var emptyStateView = TableEmptyState.instanceFromNib()
     var errorStateView = TableErrorState.instanceFromNib()
 
@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Employees"
-        loadingIndicator.isHidden = true
         
         self.tableView.register(UINib(nibName: "EmployeeCell", bundle: nil), forCellReuseIdentifier: "EmployeeCell")
         tableView.delegate = self
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshTapped))
         
         // Setup empty state
-        tableView.backgroundView = emptyStateView
+        tableView.backgroundView = loadingStateView
         
         loadTableData()
     }
@@ -88,14 +87,11 @@ class ViewController: UIViewController {
     }
     
     func showLoading() {
-        loadingIndicator.startAnimating()
-        tableView.backgroundView = nil
-        loadingIndicator.isHidden = false
+        tableView.backgroundView = loadingStateView
     }
     
     func hideLoading() {
-        loadingIndicator.stopAnimating()
-        loadingIndicator.isHidden = true
+        tableView.backgroundView = nil
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6332790F27F93E1300794130 /* TableLoadingState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6332790E27F93E1300794130 /* TableLoadingState.xib */; };
+		6332791127F93E5A00794130 /* TableLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332791027F93E5A00794130 /* TableLoadingState.swift */; };
 		635155F927F7A8FD0091314D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635155F827F7A8FD0091314D /* AppDelegate.swift */; };
 		635155FB27F7A8FD0091314D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635155FA27F7A8FD0091314D /* SceneDelegate.swift */; };
 		635155FD27F7A8FD0091314D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635155FC27F7A8FD0091314D /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6332790E27F93E1300794130 /* TableLoadingState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableLoadingState.xib; sourceTree = "<group>"; };
+		6332791027F93E5A00794130 /* TableLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLoadingState.swift; sourceTree = "<group>"; };
 		635155F527F7A8FD0091314D /* EmployeeList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		635155F827F7A8FD0091314D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		635155FA27F7A8FD0091314D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6332791227F93E7700794130 /* EmployeeTable */ = {
+			isa = PBXGroup;
+			children = (
+				63953BAC27F9026600444510 /* TableEmptyState.swift */,
+				63953BAE27F9027000444510 /* TableEmptyState.xib */,
+				63953BAA27F900B000444510 /* TableErrorState.swift */,
+				63953BA827F9006D00444510 /* TableErrorState.xib */,
+				6332791027F93E5A00794130 /* TableLoadingState.swift */,
+				6332790E27F93E1300794130 /* TableLoadingState.xib */,
+				635155FC27F7A8FD0091314D /* ViewController.swift */,
+			);
+			path = EmployeeTable;
+			sourceTree = "<group>";
+		};
 		635155EC27F7A8FD0091314D = {
 			isa = PBXGroup;
 			children = (
@@ -113,9 +131,9 @@
 		635155F727F7A8FD0091314D /* EmployeeList */ = {
 			isa = PBXGroup;
 			children = (
+				6332791227F93E7700794130 /* EmployeeTable */,
 				635155F827F7A8FD0091314D /* AppDelegate.swift */,
 				635155FA27F7A8FD0091314D /* SceneDelegate.swift */,
-				635155FC27F7A8FD0091314D /* ViewController.swift */,
 				635155FE27F7A8FD0091314D /* Main.storyboard */,
 				6351560127F7A8FD0091314D /* Assets.xcassets */,
 				6351560327F7A8FD0091314D /* LaunchScreen.storyboard */,
@@ -123,10 +141,6 @@
 				6351562827F7B0830091314D /* EmployeeCell.xib */,
 				6351562A27F7B3140091314D /* EmployeeCell.swift */,
 				63BE2E8B27F7E3C200C07365 /* Network.swift */,
-				63953BA827F9006D00444510 /* TableErrorState.xib */,
-				63953BAA27F900B000444510 /* TableErrorState.swift */,
-				63953BAC27F9026600444510 /* TableEmptyState.swift */,
-				63953BAE27F9027000444510 /* TableEmptyState.xib */,
 			);
 			path = EmployeeList;
 			sourceTree = "<group>";
@@ -258,6 +272,7 @@
 				6351562927F7B0830091314D /* EmployeeCell.xib in Resources */,
 				6351560227F7A8FD0091314D /* Assets.xcassets in Resources */,
 				6351560027F7A8FD0091314D /* Main.storyboard in Resources */,
+				6332790F27F93E1300794130 /* TableLoadingState.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BE2E8C27F7E3C200C07365 /* Network.swift in Sources */,
+				6332791127F93E5A00794130 /* TableLoadingState.swift in Sources */,
 				63953BAD27F9026600444510 /* TableEmptyState.swift in Sources */,
 				635155FD27F7A8FD0091314D /* ViewController.swift in Sources */,
 				6351562B27F7B3140091314D /* EmployeeCell.swift in Sources */,

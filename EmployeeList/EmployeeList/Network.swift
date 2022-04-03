@@ -23,6 +23,7 @@ class Network {
             
             let decodedResponse = try JSONDecoder().decode(Response.self, from: data)
             let results = decodedResponse.employees
+            sleep(4)  // Uncomment for testing loading state
             return results
         } catch {
             print("ERROR: Invalid data. \(error)")
