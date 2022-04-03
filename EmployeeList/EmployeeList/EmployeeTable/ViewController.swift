@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     
     @objc func refreshTapped() {
         print("INFO: Refresh button tapped.")
+        tableData = nil
+        tableView.reloadData()
         loadTableData()
     }
     

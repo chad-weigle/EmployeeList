@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 class Network {
+    var myURLSession: URLSession!
+    
+    init(urlSession: URLSession = URLSession.shared) {
+        self.myURLSession = urlSession
+    }
+    
     func fetchData() async -> [Employee]? {
         let url = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"            // Good
 //        let url = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"  // Bad
@@ -19,11 +25,11 @@ class Network {
         }
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await myURLSession.data(from: url)
             
             let decodedResponse = try JSONDecoder().decode(Response.self, from: data)
             let results = decodedResponse.employees
-            sleep(4)  // Uncomment for testing loading state
+//            sleep(4)  // Uncomment for testing loading state
             return results
         } catch {
             print("ERROR: Invalid data. \(error)")
@@ -38,7 +44,7 @@ class Network {
         }
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, _) = try await myURLSession.data(from: url)
             
             let image = UIImage(data: data)
             return image

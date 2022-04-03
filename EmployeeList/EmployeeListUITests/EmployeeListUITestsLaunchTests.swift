@@ -17,7 +17,7 @@ class EmployeeListUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testLaunch() throws {
+    func disabled_testLaunch() throws {
         let app = XCUIApplication()
         app.launch()
 
