@@ -112,7 +112,11 @@ extension ViewController: UITableViewDataSource {
             let employee = data[indexPath.row]
             cell.nameLabel.text = employee.full_name
             cell.teamLabel.text = employee.team
-            cell.smallImageView.image = loadCellImage(employee: employee)
+            if let image = loadCellImage(employee: employee) {
+                cell.smallImageView.image = image
+            } else {
+                cell.smallImageView.image = UIImage(systemName: "photo")
+            }
         } else {
             cell.nameLabel.text = "Test name"
             cell.teamLabel.text = "Test team"
@@ -127,5 +131,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableData?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96
     }
 }

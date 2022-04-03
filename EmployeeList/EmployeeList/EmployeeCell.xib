@@ -37,13 +37,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="98n-m7-S0u" firstAttribute="centerY" secondItem="PXj-nz-c94" secondAttribute="centerY" id="EaJ-Tq-CSx"/>
+                    <constraint firstItem="98n-m7-S0u" firstAttribute="top" secondItem="PXj-nz-c94" secondAttribute="top" constant="8" id="8eF-q0-W6F"/>
                     <constraint firstAttribute="trailing" secondItem="AEt-Ke-IOH" secondAttribute="trailing" constant="16" id="F3b-Jg-BOH"/>
+                    <constraint firstAttribute="bottom" secondItem="98n-m7-S0u" secondAttribute="bottom" constant="8" id="FYd-EI-tHa"/>
                     <constraint firstItem="AEt-Ke-IOH" firstAttribute="top" secondItem="PXj-nz-c94" secondAttribute="top" constant="16" id="JKQ-CI-U7r"/>
-                    <constraint firstItem="98n-m7-S0u" firstAttribute="top" secondItem="PXj-nz-c94" secondAttribute="top" constant="8" id="KFg-Nk-uRu"/>
                     <constraint firstAttribute="bottom" secondItem="Mxb-Lk-fzO" secondAttribute="bottom" constant="8" id="PKL-b7-QOC"/>
                     <constraint firstAttribute="trailing" secondItem="Mxb-Lk-fzO" secondAttribute="trailing" constant="16" id="TnP-eC-7CN"/>
-                    <constraint firstAttribute="bottom" secondItem="98n-m7-S0u" secondAttribute="bottom" constant="8" id="Va9-6v-v9c"/>
                     <constraint firstItem="98n-m7-S0u" firstAttribute="leading" secondItem="PXj-nz-c94" secondAttribute="leading" constant="8" id="aCi-h7-hac"/>
                 </constraints>
             </tableViewCellContentView>
