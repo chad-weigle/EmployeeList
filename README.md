@@ -28,7 +28,7 @@ About 8 hours total across a week.
 
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
 I would have liked to use SwiftUI rather than Storyboards but as I am more familiar with Storyboards, 
-I stuck to what I knew. With more time to learn SwiftUI before begining the project, I would have used it.
+I stuck to what I knew. With more time to learn SwiftUI before beginning the project, I would have used it.
 
 I also would have added in a few more unit tests to ensure my EmployeeImageService class was fully tested.
 Lastly, I would have made improvements to the UI. I would have added in some flair to the table to make
