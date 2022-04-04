@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6304E69627FA36BD00EE4E67 /* EmployeeImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304E69527FA36BD00EE4E67 /* EmployeeImageService.swift */; };
 		6332790F27F93E1300794130 /* TableLoadingState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6332790E27F93E1300794130 /* TableLoadingState.xib */; };
 		6332791127F93E5A00794130 /* TableLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332791027F93E5A00794130 /* TableLoadingState.swift */; };
 		6332791427F942F400794130 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6332791327F942F400794130 /* MockURLSession.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6304E69527FA36BD00EE4E67 /* EmployeeImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeImageService.swift; sourceTree = "<group>"; };
 		6332790E27F93E1300794130 /* TableLoadingState.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableLoadingState.xib; sourceTree = "<group>"; };
 		6332791027F93E5A00794130 /* TableLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLoadingState.swift; sourceTree = "<group>"; };
 		6332791327F942F400794130 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				6351560327F7A8FD0091314D /* LaunchScreen.storyboard */,
 				6351560627F7A8FD0091314D /* Info.plist */,
 				63BE2E8B27F7E3C200C07365 /* Network.swift */,
+				6304E69527FA36BD00EE4E67 /* EmployeeImageService.swift */,
 			);
 			path = EmployeeList;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				635155FD27F7A8FD0091314D /* EmployeeTableViewController.swift in Sources */,
 				6351562B27F7B3140091314D /* EmployeeCell.swift in Sources */,
 				635155F927F7A8FD0091314D /* AppDelegate.swift in Sources */,
+				6304E69627FA36BD00EE4E67 /* EmployeeImageService.swift in Sources */,
 				635155FB27F7A8FD0091314D /* SceneDelegate.swift in Sources */,
 				63953BAB27F900B000444510 /* TableErrorState.swift in Sources */,
 			);

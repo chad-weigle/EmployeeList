@@ -13,6 +13,7 @@ class EmployeeTableViewController: UIViewController {
     var tableData: [Employee]?
     var smallImages: [String:UIImage] = [:]
     var network = Network()
+    var employeeImageService = EmployeeImageService()
     var loadingStateView = TableLoadingState.instanceFromNib()
     var emptyStateView = TableEmptyState.instanceFromNib()
     var errorStateView = TableErrorState.instanceFromNib()
@@ -49,8 +50,10 @@ class EmployeeTableViewController: UIViewController {
             // Show an error state or empty state view
             if tableData == nil {
                 tableView.backgroundView = errorStateView
+                return
             } else if tableData?.count == 0 {
                 tableView.backgroundView = emptyStateView
+                return
             }
             
             await MainActor.run {
@@ -61,26 +64,24 @@ class EmployeeTableViewController: UIViewController {
         }
     }
     
-    // Load the cell image from the cache or go fetch it from the api (api does table reload)
+    // Load the cell image from the cache
     func loadCellImage(employee: Employee) -> UIImage? {
-        // See if we have the image cached first
-        if let smallImage = smallImages[employee.photo_url_small ?? ""] {
-            return smallImage
-        }
-        
-        // Nothing cached so load it via API
-        Task {
-            if let urlString = employee.photo_url_small,
-               let smallImage = await network.fetchSmallImage(imageURLString: urlString) {
-                smallImages[urlString] = smallImage
-                
-                await MainActor.run {
-                    /*
-                     This is pretty inefficient since this reloads the entire table after fetching a single image.
-                     A better implementation would be to load the image into the specific cell IF that cell is
-                     still showing the correct employee that matches this image.
-                     */
-                    tableView.reloadData()
+        if let url = employee.photo_url_small {
+            // See if we have the image in memory first
+            if let smallImage = smallImages[url] {
+                return smallImage
+            } else {
+                Task {
+                    let image = await employeeImageService.getImage(url: url)
+                    smallImages[url] = image
+                    await MainActor.run {
+                        /*
+                         This is pretty inefficient since this reloads the entire table after fetching a single image.
+                         A better implementation would be to load the image into the specific cell IF that cell is
+                         still showing the correct employee that matches this image.
+                         */
+                        tableView.reloadData()
+                    }
                 }
             }
         }

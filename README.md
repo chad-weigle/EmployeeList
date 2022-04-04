@@ -24,18 +24,20 @@ more than any others. This is also because my professional experience has also b
 spread over the years so I wouldn't say I have an expertise in anyone thing over another.
 
 ## How long did you spend on this project?
-About 6 hours total across a week.
+About 8 hours total across a week.
 
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
 I would have liked to use SwiftUI rather than Storyboards but as I am more familiar with Storyboards, 
 I stuck to what I knew. With more time to learn SwiftUI before begining the project, I would have used it.
-I also would have added in a few more unit tests to ensure my Network class was fully tested.
+
+I also would have added in a few more unit tests to ensure my EmployeeImageService class was fully tested.
 Lastly, I would have made improvements to the UI. I would have added in some flair to the table to make
 it less plain.
 
 ## What do you think is the weakest part of your project?
 The UI itself is straight forward but VERY plain. I would enjoy spending a couple of hours cleaning 
-up the style, adding some colors, and adding some flair with fun features (like tapping to expand a cell to view more).
+up the style, adding some colors, and adding some flair with fun features (like tapping to expand a cell to view more, 
+and using a collection view that scaled horizontally on larger screens like iPad).
 
 ## Did you copy any code or dependencies? Please make sure to attribute them here!
 I used this hackingwithswift blog post to help with the async api requests:
@@ -47,6 +49,9 @@ https://stackoverflow.com/questions/24857986/load-a-uiview-from-nib-in-swift
 Resources for unit test with mock URLSession:
 https://medium.com/@dhawaldawar/how-to-mock-urlsession-using-urlprotocol-8b74f389a67a
 https://www.swiftbysundell.com/articles/unit-testing-code-that-uses-async-await/
+
+Resources for image caching:
+https://programmingwithswift.com/save-images-locally-with-swift-5/
 
 ## Is there any other information you’d like us to know?
 I hope you like my project and I look forward to speaking with you soon!
